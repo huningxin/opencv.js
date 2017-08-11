@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>OpenCV.js Video Processing (WebAssembly)</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<body>
+<div id="container">
+  <table cellpadding="0" cellspacing="0" width="100%" border="0">
+    <tr>
+      <td></td>
+      <td>
+        <div class="text-center">
+          <span>Current Filter: </span><span id="filterName">Pass Through</span>
+        </div>
+      </td>
+      <td>
+        <div>Select Filter:</div>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <canvas class="center-block" id="canvasOutput" width=320 height=240></canvas>
+      </td>
+      <td>
+        <div id="guiContainer"></div>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+  <div class="invisible">
+    <video id="video" class="hidden">Your browser does not support the video tag.</video>
+  </div>
+</div>
+</body>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
+<script>
+  var Module = {
+    wasmBinaryFile: 'https://huningxin.github.io/opencv.js/build/wasm/opencv_js.wasm',
+    _main: function() {opencvIsReady();}
+  };
+</script>
+<script async src="https://huningxin.github.io/opencv.js/build/wasm/opencv.js"></script>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>
