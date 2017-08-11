@@ -1,5 +1,11 @@
 let videoWidth, videoHeight;
 
+let qvga = {width: {exact: 320}, height: {exact: 240}};
+
+let vga = {width: {exact: 640}, height: {exact: 480}};
+
+let resolution = window.innerWidth < 640 ? qvga : vga;
+
 // whether streaming video from the camera.
 let streaming = false;
 
@@ -13,7 +19,7 @@ let detectEye = document.getElementById('eye');
 
 function startCamera() {
   if (streaming) return;
-  navigator.mediaDevices.getUserMedia({video: true, audio: false})
+  navigator.mediaDevices.getUserMedia({video: resolution, audio: false})
     .then(function(s) {
     stream = s;
     video.srcObject = s;
@@ -93,7 +99,8 @@ function processVideo() {
       size = faceMat.size();
     } else {
       cv.pyrDown(grayMat, faceMat);
-      cv.pyrDown(faceMat, faceMat);
+      if (videoWidth > 320)
+        cv.pyrDown(faceMat, faceMat);
       size = faceMat.size();
     }
     faceClassifier.detectMultiScale(faceMat, faceVect);

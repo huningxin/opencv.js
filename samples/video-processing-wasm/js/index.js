@@ -1,6 +1,11 @@
-// In this case, We set width 320, and the height will be computed based on the input stream.
-let width = 320;
+let width = 0;
 let height = 0;
+
+let qvga = {width: {exact: 320}, height: {exact: 240}};
+
+let vga = {width: {exact: 640}, height: {exact: 480}};
+
+let resolution = window.innerWidth < 640 ? qvga : vga;
 
 // whether streaming video from the camera.
 let streaming = false;
@@ -11,7 +16,7 @@ let vc = null;
 
 function startCamera() {
   if (streaming) return;
-  navigator.mediaDevices.getUserMedia({video: true, audio: false})
+  navigator.mediaDevices.getUserMedia({video: resolution, audio: false})
     .then(function(s) {
     stream = s;
     video.srcObject = s;
@@ -23,7 +28,8 @@ function startCamera() {
 
   video.addEventListener("canplay", function(ev){
     if (!streaming) {
-      height = video.videoHeight / (video.videoWidth/width);
+      height = video.videoHeight;
+      width = video.videoWidth;
       video.setAttribute("width", width);
       video.setAttribute("height", height);
       streaming = true;
