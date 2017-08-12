@@ -9,6 +9,8 @@ canvas {
 }
 div {
   margin: 10px;
+}
+#info {
   font: 16px 'Lucida Grande', sans-serif;
 }
 .center-block {

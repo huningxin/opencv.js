@@ -14,7 +14,7 @@ canvas {
 .row {
   margin: 10px;
 }
-div {
+#info {
   font: 14px 'Lucida Grande', sans-serif;
 }
 tr td {
