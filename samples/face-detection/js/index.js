@@ -17,6 +17,8 @@ let stream = null;
 let detectFace = document.getElementById('face');
 let detectEye = document.getElementById('eye');
 
+let info = document.getElementById('info');
+
 function startCamera() {
   if (streaming) return;
   navigator.mediaDevices.getUserMedia({video: resolution, audio: false})
@@ -179,6 +181,7 @@ function initUI() {
 
 function opencvIsReady() {
   console.log('OpenCV.js is ready');
+  info.innerHTML = '';
   initUI();
   startCamera();
 }

@@ -14,6 +14,9 @@ let video = document.getElementById("video");
 let stream = null;
 let vc = null;
 
+let info = document.getElementById('info');
+let container = document.getElementById('container');
+
 function startCamera() {
   if (streaming) return;
   navigator.mediaDevices.getUserMedia({video: resolution, audio: false})
@@ -530,6 +533,8 @@ function initUI() {
 
 function opencvIsReady() {
   console.log('OpenCV.js is ready');
+  info.innerHTML = '';
+  container.className = '';
   initUI();
   startCamera();
 }

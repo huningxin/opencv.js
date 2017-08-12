@@ -9,6 +9,7 @@ canvas {
 }
 div {
   margin: 10px;
+  font: 16px 'Lucida Grande', sans-serif;
 }
 .center-block {
   display: block;

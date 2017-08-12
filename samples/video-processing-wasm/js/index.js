@@ -14,6 +14,12 @@ let video = document.getElementById("video");
 let stream = null;
 let vc = null;
 
+let info = document.getElementById('info');
+let container = document.getElementById('container');
+if (!window.WebAssembly) {
+  info.innerHTML = 'WebAssembly is not supported.'
+}
+
 function startCamera() {
   if (streaming) return;
   navigator.mediaDevices.getUserMedia({video: resolution, audio: false})
@@ -530,6 +536,8 @@ function initUI() {
 
 function opencvIsReady() {
   console.log('OpenCV.js is ready');
+  info.innerHTML = '';
+  container.className = '';
   initUI();
   startCamera();
 }
