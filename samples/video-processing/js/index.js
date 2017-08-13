@@ -533,6 +533,10 @@ function initUI() {
 
 function opencvIsReady() {
   console.log('OpenCV.js is ready');
+  if (!featuresReady) {
+    console.log('Requred features are not ready.');
+    return;
+  }
   info.innerHTML = '';
   container.className = '';
   initUI();

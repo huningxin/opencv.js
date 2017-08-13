@@ -43,7 +43,11 @@
 <script src="../libs/adapter-latest.js"></script>
 <script src="../libs/stats.min.js"></script>
 <script src="../libs/dat.gui.min.js"></script>
-<script async src="../../build/asm.js/opencv.js" onload="opencvIsReady()"></script>  
+<script src="../libs/utils.js"></script>
+<script>
+var featuresReady = checkFeatures(document.getElementById("info"), {webrtc: true});
+</script>
 <script src="js/index.js"></script>
+<script async src="../../build/asm.js/opencv.js" onload="opencvIsReady()"></script>
 </body>
 </html>

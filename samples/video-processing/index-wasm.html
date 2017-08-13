@@ -42,6 +42,11 @@
 <script src="../libs/adapter-latest.js"></script>
 <script src="../libs/stats.min.js"></script>
 <script src="../libs/dat.gui.min.js"></script>
+<script src="../libs/utils.js"></script>
+<script>
+var featuresReady = checkFeatures(document.getElementById("info"), {webrtc: true, wasm: true});
+</script>
+<script src="js/index.js"></script>
 <script>
 var Module = {
   wasmBinaryFile: '../../build/wasm/opencv_js.wasm',
@@ -49,6 +54,5 @@ var Module = {
 };
 </script>
 <script async src="../../build/wasm/opencv.js"></script>
-<script src="js/index.js"></script>
 </body>
 </html>
