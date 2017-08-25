@@ -111,7 +111,7 @@ function processVideo() {
       faces.push(new cv.Rect(face.x, face.y, face.width, face.height));
       if (detectEye.checked) {
         let eyeVect = new cv.RectVector();
-        let eyeMat = faceMat.getRoiRect(face);
+        let eyeMat = faceMat.roi(face);
         eyeClassifier.detectMultiScale(eyeMat, eyeVect);
         for (let i = 0; i < eyeVect.size(); i++) {
           let eye = eyeVect.get(i);
