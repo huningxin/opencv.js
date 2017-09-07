@@ -1,0 +1,21 @@
+{
+  "name": "face_detection",
+  "description": "Face detection sample for opencv.js",
+  "version": "0.0.1",
+  "dependencies" : {
+    "opencv.js" : "latest",
+    "jpeg-js" : "latest",
+    "v4l2camera" : "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huningxin/opencv.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "BSD-4-Clause",
+  "bugs": {
+    "url": "https://github.com/huningxin/opencv.js/issues"
+  },
+  "homepage": "https://github.com/huningxin/opencv.js"
+}
