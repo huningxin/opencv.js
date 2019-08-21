@@ -142,7 +142,7 @@ function processVideo() {
   drawResults(canvasOutputCtx, faces, 'red', size);
   drawResults(canvasOutputCtx, eyes, 'yellow', size);
   stats.end();
-  requestAnimationFrame(processVideo);
+  setTimeout(processVideo, 0);
 }
 
 function drawResults(ctx, results, color, size) {
@@ -177,6 +177,17 @@ function initUI() {
   stats = new Stats();
   stats.showPanel(0);
   document.getElementById('container').appendChild(stats.dom);
+
+  // init threads number UI
+  let threads_num_label = document.getElementById('threads_num_label');
+  threads_num_label.innerHTML = `Number of threads (1 - ${navigator.hardwareConcurrency}):`;
+  let threads_num = document.getElementById('threads_num');
+  threads_num.max = navigator.hardwareConcurrency;
+  threads_num.value = 1;
+  cv.parallel_pthreads_set_threads_num(1);
+  threads_num.addEventListener('change', () => {
+    cv.parallel_pthreads_set_threads_num(parseInt(threads_num.value));
+  });
 }
 
 function opencvIsReady() {
