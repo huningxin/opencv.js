@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+    <meta charset="utf-8"> 
+    <title>OpenCV.js Image Classification Example</title> 
+    <link href="js_example_style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <h2 id="title">OpenCV.js Image Classification Example (Threads_SIMD)</h2>
+
+    <div>
+        <p><b>Model</b></p>
+        <select id='modelName'>
+            <option>squeezenet</option>
+            <option>mobilenetv2</option>
+            <option>resnet50v1</option>
+            <option>resnet50v2</option>
+        </select>
+        <p id="modelLoad"></p>
+        <progress id="modelProgress" value="0" max="100" style="visibility: hidden"></progress>
+        <span id="showModel" style="visibility: visible"></span>
+    </div>
+
+    <div>
+        <p><b>Iterations</b></p>
+        <input type='number' id='iterations' min='1' size='4' value='1'>
+    </div>
+
+
+    <div class="inputoutput">
+        <img id="imgsrc" width="224" height="224" alt="No image" src='./image/panda.jpg' />
+        <br><b>test image</b> <input type="file" id="fileinput" name="file" />
+    </div>
+
+    <button type="button" id="runButton" disabled="disabled">run</button>
+    <br> <progress id="iterationProgress" value="0" max="100" style="visibility: hidden"></progress>
+    <span id="showIterations" style="visibility: visible"></span>
+    <P style="visibility: hidden" id="testInfo"></P>
+
+
+    <script src="../build/thread_simd/opencv.js" type="text/javascript"></script>
+    <script src="../build/thread_simd/opencv_js.worker.js" type="text/javascript"></script>
+    <script src="./main.js" type="text/javascript"></script>
+
+</body>
+
+</html>
